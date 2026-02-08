@@ -37,7 +37,6 @@ To build a tool that fundamentally streamlines the job application process, givi
 - Demonstrates how browser extension would work
 - Simulates form field detection and profile mapping
 - Shows confidence scores for auto-filled data
-- **Note:** This is a UI prototype. Production version would require Chrome Extension APIs.
 
 ### 6. Profile Manager
 - Complete onboarding with career preferences
