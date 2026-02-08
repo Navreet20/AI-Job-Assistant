@@ -1,0 +1,353 @@
+.answer-generator {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.generator-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.input-section {
+  padding: 32px;
+  margin-bottom: 24px;
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  color: #00ffd5;
+  font-weight: 500;
+}
+
+.question-input {
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  min-height: 100px;
+}
+
+.quick-questions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.quick-label {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-right: 8px;
+}
+
+.quick-tag {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.quick-tag:hover {
+  background: rgba(0, 255, 213, 0.15);
+  border-color: rgba(0, 255, 213, 0.4);
+  color: #00ffd5;
+  transform: translateY(-2px);
+}
+
+.generate-btn {
+  width: 100%;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #00ffd5;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Generating State */
+.generating-state {
+  text-align: center;
+  padding: 60px;
+}
+
+.typing-indicator {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.typing-indicator span {
+  width: 12px;
+  height: 12px;
+  background: #00ffd5;
+  border-radius: 50%;
+  animation: bounce 1.4s ease-in-out infinite both;
+  box-shadow: 0 0 20px rgba(0, 255, 213, 0.5);
+}
+
+.typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+.typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+
+.context-badges {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.context-badge {
+  background: rgba(0, 255, 213, 0.1);
+  border: 1px solid rgba(0, 255, 213, 0.3);
+  color: #00ffd5;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+/* Result Section */
+.result-section {
+  padding: 32px;
+  animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.confidence-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.confidence-ring {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: conic-gradient(#00ffd5 var(--confidence), rgba(255,255,255,0.1) 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0, 255, 213, 0.3);
+}
+
+.confidence-ring::before {
+  content: '';
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 50%;
+}
+
+.confidence-ring span {
+  position: relative;
+  z-index: 1;
+  font-weight: bold;
+  color: #00ffd5;
+  font-size: 0.9rem;
+}
+
+.confidence-score label {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.word-count {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.context-sources {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.context-sources small {
+  opacity: 0.6;
+}
+
+.source-tag {
+  background: rgba(95, 156, 255, 0.15);
+  border: 1px solid rgba(95, 156, 255, 0.3);
+  color: #5f9cff;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+}
+
+.answer-editor {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.answer-textarea {
+  width: 100%;
+  min-height: 200px;
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.answer-textarea:focus {
+  outline: none;
+  border-color: #00ffd5;
+  box-shadow: 0 0 30px rgba(0, 255, 213, 0.1);
+}
+
+.editor-toolbar {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.copy-btn {
+  flex: 1;
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #00ffd5, #5f9cff);
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.copy-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 255, 213, 0.3);
+}
+
+.copy-btn.copied {
+  background: linear-gradient(135deg, #00ff88, #00ffd5);
+}
+
+.reset-btn {
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.reset-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.feedback-section {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 24px;
+  text-align: center;
+}
+
+.feedback-section p {
+  margin-bottom: 16px;
+  opacity: 0.9;
+}
+
+.feedback-options {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.feedback-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 100px;
+}
+
+.feedback-option:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.feedback-option.selected {
+  background: rgba(0, 255, 213, 0.15);
+  border-color: #00ffd5;
+  box-shadow: 0 0 20px rgba(0, 255, 213, 0.2);
+}
+
+.feedback-emoji {
+  font-size: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .result-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .feedback-options {
+    flex-direction: column;
+  }
+  
+  .feedback-option {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
