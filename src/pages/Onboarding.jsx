@@ -40,10 +40,10 @@ const questions = [
   },
   {
     id: 'location',
-    question: "Where are you located?",
+    question: "Which location you want to work?",
     subtitle: "Helps us show location-relevant jobs",
     type: 'input',
-    placeholder: 'e.g., San Francisco, CA or Remote'
+    placeholder: 'e.g., San Francisco, CA or LA '
   }
 ];
 
